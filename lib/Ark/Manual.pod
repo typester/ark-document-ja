@@ -1,0 +1,98 @@
+=encoding utf-8
+
+=head1 NAME
+
+Ark::Manual - Ark Documentation
+
+=head1 はじめの一歩
+
+=over 4
+
+=item *
+
+L<概要 - Ark とは|Ark::Manual::About>
+
+=item *
+
+L<インストール|Ark::Manual::Install>
+
+=back
+
+=head1 チュートリアル
+
+=over 4
+
+=item *
+
+L<Hello World アプリケーション|Ark::Manual::Tutorial::HelloWorld>
+
+=item *
+
+L<テンプレートを使う|Ark::Manual::Tutorial::UseTemplate>
+
+=item *
+
+L<データベースを使う|Ark::Manual::Tutorial::UseDataBase>
+
+=item *
+
+L<ユーザー認証|Ark::Manual::Tutorial::SimpleAuthentication>
+
+=item *
+
+L<OpenID 認証|Ark::Manual::Tutorial::OpenIDAuthentication>
+
+=item *
+
+L<アプリケーションのテスト|Ark::Manual::Tutorial::WritingTests>
+
+=back
+
+=head1 ドキュメント
+
+=head2 コア
+
+=over 4
+
+=item *
+
+L<Controller と Action|Ark::Manual::ControllerAction>
+
+=item *
+
+L<Model と View|Ark::Manual::ModelView>
+
+=back
+
+=head2 プラグイン
+
+=over 4
+
+=item *
+
+セッション
+
+=item *
+
+キャッシュ
+
+=item *
+
+認証
+
+=back
+
+=head1 AUTHOR
+
+Daisuke Murase <typester@cpan.org>
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright (c) 2009 KAYAC Inc. All rights reserved.
+
+This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
+
+The full text of the license can be found in the LICENSE file included with this module.
+
+=cut
+

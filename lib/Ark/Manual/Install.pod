@@ -1,0 +1,85 @@
+=encoding utf-8
+
+=head1 NAME
+
+Ark::Manual::Install - インストール
+
+=head1 DESCRIPTION
+
+まずはインストールをしなければはじまりません。
+ここでは Ark のインストール方法を解説します。
+
+=head1 Perl のインストール
+
+Ark は Perl のウェブアプリケーションフレームワークなので Perl が必要です。
+Ark はバージョン 5.8.1 以上の Perl で動作します。
+
+お使いのコンピュータが Linux や Mac OSX で動作しているのなら、おそらくすでに Perl はインストール済みのはずです。
+
+インストールされている Perl のバージョンを調べるには、シェル上で perl --version と入力します。
+出力は以下のようになるでしょう：
+
+    This is perl, v5.8.8 built for darwin-thread-multi-2level
+    (with 2 registered patches, see perl -V for more detail)
+    
+    Copyright 1987-2006, Larry Wall
+    
+    Perl may be copied only under the terms of either the Artistic License or the
+    GNU General Public License, which may be found in the Perl 5 source kit.
+    
+    Complete documentation for Perl, including FAQ lists, should be found on
+    this system using "man perl" or "perldoc perl".  If you have access to the
+    Internet, point your browser at http://www.perl.org/, the Perl Home Page.
+
+v5.x.x という部分が 5.8.1 以上であれば Ark を動作させることができます。
+
+=head1 Ark のインストール
+
+=head2 ダウンロード
+
+http://opensource.kayac.com/projects/ark/#download
+
+より、最新版をダウンロードし、展開します。
+
+例：
+
+    $ wget opensource.kayac.com/projects/ark/releases/Ark-0.01.tar.gz
+    $ tar zxvf Ark-0.01.tar.gz
+
+=head2 テスト
+
+インストールする前にテストを走らせます。こうすることで Ark がお使いのシステム上で正しく動作するかを確認することができます。
+
+テストをするためには Ark を展開したディレクトリ上で cpan -t . コマンドを実行します。
+
+    $ cd Ark-0.01
+    $ cpan -t .
+
+perl や CPAN の環境が整っていない場合、画面上にいくつか質問が出ると思います。その場合は画面の指示に従ってください。
+
+ここで最後に、
+
+    All tests successful.
+
+という出力が出ていれば、Ark のインストールの準備が整ったことを意味します。
+
+=head2 インストール
+
+インストールするには cpan -i . コマンドを実行します。
+
+    $ cpan -i .
+
+もし、CPAN の設定が不十分な場合、上記コマンドではエラーになってしまうかもしれません。
+
+その場合は
+
+    $ sudo -H cpan -i .
+
+をためしてみてください。
+
+これで無事インストールが完了すればおめでとうございます！ Ark のインストールは完了です。
+
+L<チュートリアル|Ark::Manual::Tutorial>にすすみ実際にアプリケーションを作成してみてください。
+
+
+
