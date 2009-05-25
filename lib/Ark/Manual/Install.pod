@@ -43,7 +43,7 @@ http://opensource.kayac.com/projects/ark/#download
 
 例：
 
-    $ wget opensource.kayac.com/projects/ark/releases/Ark-0.01.tar.gz
+    $ wget http://opensource.kayac.com/projects/ark/releases/Ark-0.01.tar.gz
     $ tar zxvf Ark-0.01.tar.gz
 
 =head2 テスト

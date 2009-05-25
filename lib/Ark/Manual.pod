@@ -46,6 +46,10 @@ L<OpenID 認証|Ark::Manual::Tutorial::OpenIDAuthentication>
 
 L<アプリケーションのテスト|Ark::Manual::Tutorial::WritingTests>
 
+=item *
+
+L<共有サーバーへのデプロイ|Ark::Manual::Tutorial::DeproyToSharedHost>
+
 =back
 
 =head1 ドキュメント
@@ -61,6 +65,10 @@ L<Controller と Action|Ark::Manual::ControllerAction>
 =item *
 
 L<Model と View|Ark::Manual::ModelView>
+
+=item *
+
+L<ヘルパースクリプト|Ark::Manual::ark.pl>
 
 =back
 

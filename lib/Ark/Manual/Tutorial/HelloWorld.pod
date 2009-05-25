@@ -1,0 +1,98 @@
+=encoding utf-8
+
+=head1 NAME
+
+Ark::Manual::Tutorial::HelloWorld - HelloWorld アプリケーションの作成
+
+=head1 DESCRIPTION
+
+=head1 アプリケーションのひな形の生成
+
+まずはじめにアプリケーションのひな形を生成します。
+
+ひな形を生成するには ark.pl コマンドを使用します。作業用ディレクトリに移動し以下のコマンドを実行してください。
+
+    $ ark.pl newapp HelloWorld
+    Creating directory HelloWorld
+    Creating HelloWorld/Makefile.PL
+    Creating HelloWorld/lib/HelloWorld.pm
+    Creating HelloWorld/lib/HelloWorld/Controller/Root.pm
+    Creating directory HelloWorld/root
+    Creating HelloWorld/t/00_compile.t
+    Creating directory HelloWorld/tmp
+
+実行するとこのような出力になります。
+
+これで C<HelloWorld> というディレクトリに Ark アプリケーションのひな形がつくられます。
+
+=head1 テストサーバーの起動
+
+ark.pl コマンドには組み込みサーバーでアプリケーションを起動できる機能ももっています。早速いまつくったひな形を起動させてみましょう。
+
+作ったアプリケーションのディレクトリに移動し、
+
+    $ cd HelloWorld
+
+C<ark.pl server> というコマンドを実行すると、テストサーバーが起動します。
+
+    $ ark.pl server
+    HTTP::Engine::Interface::ServerSimple : You can connect to your server at http://0.0.0.0:4423/
+
+ブラウザで L<http://0.0.0.0:4423/> にアクセスしてみてください。C<Ark Default Index> という文字が表示されていればテストサーバーの起動は完了です。
+
+=head1 コントローラの編集
+
+このデフォルトのメッセージを編集するためにはコントローラの該当箇所を編集します。
+
+C<lib/HelloWorld/Controller/Root.pm> を開くと以下のような内容になっています。
+
+    package HelloWorld::Controller::Root;
+    use Ark 'Controller';
+    
+    has '+namespace' => default => '';
+    
+    # default 404 handler
+    sub default :Path :Args {
+        my ($self, $c) = @_;
+    
+        $c->res->status(404);
+        $c->res->body('404 Not Found');
+    }
+    
+    sub index :Path :Args(0) {
+        my ($self, $c) = @_;
+        $c->res->body('Ark Default Index');
+    }
+    
+    1;
+
+コントローラの細かいドキュメントはL<コントローラとアクション|Ark::Manual::ControllerAction>の項を参考いただくとして、ここでは
+
+    sub index :Path :Args(0) {
+        my ($self, $c) = @_;
+        $c->res->body('Ark Default Index');
+    }
+
+という部分に注目してください。
+
+この部分が L<http://0.0.0.0:4423> にアクセスすると実行される部分です。ここを、
+
+    $c->res->body('Hello World!');
+
+と変更し、テストサーバーを再起動してみてください。
+
+そしてふたたび L<http://0.0.0.0:4423> を開くとどうでしょう。Hello World! という表示にかわっていれば完成です。
+
+=head1 開発の流れ
+
+Ark における開発の流れはだいたいこのような感じになっています。
+
+また、テストサーバーは
+
+    $ ark.pl server -d
+
+と C<-d> オプション付きで実行すると詳細なデバッグログをコンソールに表示してくれます。開発時にはこのオプションを常につけるようにすると良いでしょう。
+
+他のオプションについては C<ark.pl server --help> を実行してください。
+
+=cut
