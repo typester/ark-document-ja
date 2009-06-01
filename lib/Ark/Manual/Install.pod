@@ -37,13 +37,13 @@ v5.x.x という部分が 5.8.1 以上であれば Ark を動作させること�
 
 =head2 ダウンロード
 
-http://opensource.kayac.com/projects/ark/#download
+<http://github.com/typester/ark-perl/downloads>
 
 より、最新版をダウンロードし、展開します。
 
 例：
 
-    $ wget http://opensource.kayac.com/projects/ark/releases/Ark-0.01.tar.gz
+    $ wget http://cloud.github.com/downloads/typester/ark-perl/Ark-0.001000_001.tar.gz
     $ tar zxvf Ark-0.01.tar.gz
 
 =head2 テスト
@@ -79,7 +79,4 @@ perl や CPAN の環境が整っていない場合、画面上にいくつか質
 
 これで無事インストールが完了すればおめでとうございます！ Ark のインストールは完了です。
 
-L<チュートリアル|Ark::Manual::Tutorial>にすすみ実際にアプリケーションを作成してみてください。
-
-
-
+L<チュートリアル|Ark::Manual/チュートリアル>にすすみ実際にアプリケーションを作成してみてください。
