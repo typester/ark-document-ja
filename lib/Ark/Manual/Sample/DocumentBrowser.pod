@@ -1,0 +1,67 @@
+=encoding utf-8
+
+=head1 NAME
+
+Ark::Manual::Sample::DocumentBrowser - シンプルなpodブラウザー
+
+=head1 DESCRIPTION
+
+Arkドキュメントブラウザは Ark を使って作られたシンプルな Perl ドキュメントのブラウザです。
+
+指定した名前空間以下のドキュメントをブラウザ上で閲覧することができます。
+
+=head1 ダウンロード
+
+Arkドキュメントブラウザは github 上で開発されています。
+
+L<http://github.com/typester/ark-document-browser>
+
+以下のようなコマンドでコードを取得することができます。
+
+    git clone git://github.com/typester/ark-document-browser.git ark-document-browser
+
+=head1 使い方
+
+ダウンロードしたら ark-document-browser ディレクトリにうつり、
+
+    ./script/arkdoc_server.pl
+
+を実行するとドキュメントブラウザが立ち上がります。
+
+デフォルトでは C<Ark::Manual> の名前空間以下のドキュメントが開かれます。
+
+    ./script/arkdoc_server.pl Moose
+
+などとコマンドの第一引数に名前空間を指定するとその名前空間のドキュメントを閲覧することが可能です。
+
+=head1 依存モジュール
+
+ドキュメントブラウザを使用するにはあらかじめ下記のモジュールのインストールが必要です。
+
+=over 4
+
+=item *
+
+Ark 0.1rc1以上
+
+=item *
+
+L<HTTP::Engine::Middleware> 0.14 以上
+
+=item *
+
+L<HTML::TreeBuilder>
+
+=item *
+
+L<List::Util>
+
+=item *
+
+L<Object::Container>
+
+=item *
+
+L<Pod::Simple::XHTML>
+
+=back

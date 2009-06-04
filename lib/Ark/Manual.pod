@@ -94,6 +94,16 @@ L<ヘルパースクリプト|Ark::Manual::ark>
 
 =back
 
+=head2 サンプルアプリケーション
+
+=over 4
+
+=item *
+
+L<ドキュメントブラウザ|Ark::Manual::Sample::DocumentBrowser>
+
+=back
+
 =head1 AUTHOR
 
 Daisuke Murase <typester@cpan.org>
