@@ -1,0 +1,108 @@
+=encoding utf-8
+
+=head1 NAME
+
+Ark::Context - リクエストコンテキストクラス
+
+=head1 DESCRIPTION
+
+Ark::Context アクションの第二引数でわたされる、リクエストのコンテキストオブジェクトです。慣習として以下のように C<$c> という変数名が使用されます。
+
+    sub action :Private {
+        my ($self, $c) = @_;
+    }
+
+コンテキストクラスはリクエスト情報（requestメソッド）の取得や、レスポンス情報のセット（responseメソッド）などリクエストにまつわる情報を持つオブジェクトです。
+
+またコンテキストクラスはリクエスト毎に初期化されます。永続的に使用したいオブジェクトやデータなどを扱いたい場合はセッションやモデルを使用するようにしてください。
+
+=head1 メソッド
+
+=head2 request
+=head2 req
+
+リクエスト情報をもつ L<HTTP::Engine::Request> オブジェクトを返す。
+
+=head2 response
+=head2 res
+
+レスポンス情報をもつ L<HTTP::Engine::Response> オブジェクトを返す。
+
+このオブジェクトに値を与えることでレスポンスをセットすることができる。
+
+    $c->response->body('Hello Ark World!');
+
+=head2 stash
+
+複数のアクション間やテンプレートにデータを受け渡すために使用するデータの入れ物。Hashリファレンス。
+
+    $c->stash->{foo} = 'data';
+
+=head2 forward
+
+他のアクションに処理を渡す。
+
+    $c->forward('action_name', @args);
+
+関数呼び出しと同じイメージで使用でき、便宜上下記のコードのショートカットと考えることもできる。
+
+    $self->action_name($c, @args);
+
+ただし、
+
+    $self->forward('/default');
+
+などのように絶対パスで違う階層のアクションも呼ぶことが可能。
+
+=head2 detach
+
+forward と似ているが、detach を呼ぶと処理を継続しない。
+
+    sub action :Private {
+        my ($self, $c) = @_;
+        $c->detach('action2');
+    
+        # ここは実行されない。
+    }
+    
+    sub action2 :Private {
+        my ($self, $c) = @_;
+        
+    }
+
+=head2 uri_for
+
+アプリケーションのベースURLからのURLを作るためのユーティリティメソッド。
+
+ベースURLが C<http://example.com/myapp> だとすると
+
+    $c->uri_for('/path/to/file');
+
+は
+
+    http://example.com/myapp/path/to/fileno
+
+を返す。
+
+=head2 redirect
+
+リダイレクト処理を簡単に書くためのユーティリティメソッド
+
+    $c->redirect( $c->uri_for('/') );
+
+は
+
+    $c->res->status(302);
+    $c->res->header( Location => $c->uri_for('/') );
+
+と同等。また第二引数でステータスコードを指定することもできる。
+
+    $c->redirect( $c->uri_for('/'), 301 );
+
+=head2 redirect_and_detach
+
+リダイレクト処理を簡単に書くためのユーティリティメソッド
+
+redirect メソッドと同じだが、実行したあと detach する。
+
+=cut
