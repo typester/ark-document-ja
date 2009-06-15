@@ -37,7 +37,7 @@ v5.x.x という部分が 5.8.1 以上であれば Ark を動作させること�
 
 =head2 ダウンロード
 
-<http://github.com/typester/ark-perl/downloads>
+L<http://github.com/typester/ark-perl/downloads>
 
 より、最新版をダウンロードし、展開します。
 
@@ -80,3 +80,4 @@ perl や CPAN の環境が整っていない場合、画面上にいくつか質
 これで無事インストールが完了すればおめでとうございます！ Ark のインストールは完了です。
 
 L<チュートリアル|Ark::Manual/チュートリアル>にすすみ実際にアプリケーションを作成してみてください。
+
